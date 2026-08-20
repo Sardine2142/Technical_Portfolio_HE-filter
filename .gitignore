@@ -1,0 +1,16 @@
+# 빌드 산출물
+lookup_server
+lookup_daemon
+lookup_client
+measure_client
+*.o
+
+# 수집기 생성 데이터 (fetcher/fetch_feed.py 실행으로 재생성)
+feed_hv.csv
+feed_values.csv
+feed_state.json
+filtered_out.txt
+*.tmp
+
+# 실행 로그
+*.log

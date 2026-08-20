@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 문자 인코딩 지정 -->
+  <meta charset="utf-8">
+  <!-- 모바일 배율 지정 (확장 페이지지만 관례상 포함) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>주의가 필요한 사이트</title>
+  <style>
+    /* 페이지 전체: 노란 계열 배경 (목록 일치의 붉은 차단 페이지와 등급을 시각적으로 구분) */
+    body {
+      margin: 0;
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      background: #fdf6e3;
+      color: #4a3b00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    /* 중앙 카드 */
+    .card {
+      max-width: 640px;
+      background: #fffdf5;
+      border: 2px solid #e0a800;
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    /* 제목 줄 */
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 22px;
+      color: #8a6d00;
+    }
+    /* 부제 (등급 설명) */
+    .grade {
+      margin: 0 0 20px 0;
+      font-size: 14px;
+      color: #7a6a30;
+    }
+    /* 대상 주소 표시 상자 */
+    .target {
+      background: #f4ecd0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: monospace;
+      font-size: 14px;
+      word-break: break-all;
+      margin-bottom: 20px;
+    }
+    /* 사유 목록 */
+    ul.reasons {
+      margin: 0 0 24px 0;
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    /* 버튼 공통 */
+    button {
+      font-size: 15px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+    /* 뒤로가기: 권장 동작이므로 진한 색 */
+    #btn-back {
+      background: #8a6d00;
+      color: #fff;
+    }
+    /* 계속 진행: 비권장이므로 옅은 외곽선만 */
+    #btn-proceed {
+      background: transparent;
+      color: #8a6d00;
+      border: 1px solid #c9a800;
+    }
+    /* 하단 설명 */
+    .note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #9a8a50;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- 등급 명시: 확정 차단이 아니라 추정 경고임을 문구로 밝힌다 -->
+    <h1>이 사이트는 주의가 필요합니다</h1>
+    <p class="grade">피싱 목록 일치(확정)가 아닌, 주소 형태 검사에 의한 추정 경고입니다.</p>
+
+    <!-- 이동하려던 주소 (caution.js 가 채운다) -->
+    <div class="target" id="target-url"></div>
+
+    <!-- 감지 사유 목록 (caution.js 가 채운다) -->
+    <ul class="reasons" id="reason-list"></ul>
+
+    <!-- 행동 버튼 두 개 -->
+    <button id="btn-back">뒤로가기</button>
+    <button id="btn-proceed">위험을 알고 계속 진행</button>
+
+    <!-- 판정 방식 안내 -->
+    <p class="note">
+      이 검사는 사용자의 기기 안에서만 수행되었으며, 방문하려던 주소는 어디로도 전송되지 않았습니다.
+      계속 진행을 선택하면 이 사이트는 브라우저를 닫을 때까지 다시 묻지 않습니다.
+    </p>
+  </div>
+
+  <!-- MV3 확장 페이지는 인라인 스크립트가 금지되므로 별도 파일로 분리한다 -->
+  <script src="caution.js"></script>
+</body>
+</html>

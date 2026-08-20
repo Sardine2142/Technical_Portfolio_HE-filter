@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "Private Phishing Lookup",
+  "version": "0.1.0",
+  "description": "동형암호 기반 프라이빗 피싱 검사 — 방문 도메인을 서버에 노출하지 않고 확인합니다",
+  "background": { "service_worker": "background.js" },
+  "permissions": [ "nativeMessaging", "webNavigation", "tabs", "storage" ]
+}
